@@ -19,13 +19,13 @@ export class CountriesService {
     this.API = environment.api;
   }
 
-  getAllContries(): void {
-    this.http
+  getAllContries() {
+    return this.http
       .get(this.API)
       .pipe(map((response: []) => this.orderByRegion(response)));
   }
 
-  private orderByRegion(listContries: []): Object {
+  private orderByRegion(listContries: []) {
     listContries.forEach((countrie) => {
       if (countrie['region'] === Regions.AFRICA) {
         this.africa.push(countrie);
@@ -39,12 +39,12 @@ export class CountriesService {
         this.oceania.push(countrie);
       }
     });
-    return {
-      asia: this.asia,
-      africa: this.africa,
-      americas: this.americas,
-      europe: this.europe,
-      oceania: this.oceania,
-    };
+    return [
+      { data: this.asia, name: Regions.ASIA },
+      { data: this.africa, name: Regions.AFRICA },
+      { data: this.americas, name: Regions.AMERICAS },
+      { data: this.europe, name: Regions.EUROPE },
+      { data: this.oceania, name: Regions.OCEANIA },
+    ];
   }
 }
