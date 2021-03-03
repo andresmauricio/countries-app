@@ -1,5 +1,14 @@
+<select name="" id="" [formControl]="select">
+  <option value="Show All">Show All</option>
+  <option value="Favorites">Favorites</option>
+  <option value="Africa">Africa</option>
+  <option value="Asia">Asia</option>
+  <option value="Americas">Americas</option>
+  <option value="Europe">Europe</option>
+  <option value="Oceania">Oceania</option>
+</select>
 <div class="grid">
-  <section *ngFor="let region of countries">
+  <section *ngFor="let region of filterData">
     <h2>{{region.name}}</h2>
     <app-countri *ngFor="let countrie of region.data" [countrie]="countrie"></app-countri>
   </section>
