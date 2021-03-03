@@ -1,3 +1,4 @@
+<input type="text" placeholder="search" [formControl]="input">
 <select name="" id="" [formControl]="select">
   <option value="Show All">Show All</option>
   <option value="Favorites">Favorites</option>
@@ -8,8 +9,10 @@
   <option value="Oceania">Oceania</option>
 </select>
 <div class="grid">
-  <section *ngFor="let region of filterData">
-    <h2>{{region.name}}</h2>
-    <app-countri *ngFor="let countrie of region.data" [countrie]="countrie"></app-countri>
-  </section>
+  <ng-container *ngFor="let region of filterData">
+    <section *ngIf="region.data.length">
+      <h2>{{region.name}}</h2>
+      <app-countri *ngFor="let countrie of region.data" [countrie]="countrie"></app-countri>
+    </section>
+  </ng-container>
 </div>
