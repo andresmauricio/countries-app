@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-countri',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./countri.component.scss']
 })
 export class CountriComponent implements OnInit {
-
+  @Input() countrie;
   constructor() { }
 
   ngOnInit(): void {

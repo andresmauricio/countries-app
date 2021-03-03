@@ -1,4 +1,4 @@
 <section *ngFor="let region of countries">
   <h2>{{region.name}}</h2>
-  <app-countri *ngFor="let countrie of region.data"></app-countri>
+  <app-countri *ngFor="let countrie of region.data" [countrie]="countrie"></app-countri>
 </section>
